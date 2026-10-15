@@ -1,17 +1,190 @@
 <!DOCTYPE html>
-<html lang="ja">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
-</head>
+   
 
+</head>
 <body>
+    <a-assets>
+            <img id="whitewall" src="../assets/images/plaster-wall-03.jpg" alt="">
+            <img id="woodfloaring" src="../assets/images/flooring-pattern-oil.jpg" alt="">
+            <img id="bedsheets" src="../assets/images/PAK85_shiroishiruku20141206163512_TP_V4.jpg" alt="">
+            <img id="mainstay" src="../assets/images/mokume_dark04.png" alt="">
+
+         </a-assets>
     <a-scene>
-        <a-box position="0 0 -3" color="skyblue">
+        <a-box      //フローリング
+            position="0 0 0"
+            rotation="-90 0 0 "
+            width="18"
+            height="15"
+            material="src:#woodfloaring">
         </a-box>
+
+        <a-box      //天井
+            position="0 10 0"
+            rotation="-90 0 0 "
+            width="18"
+            height="15"
+            material="src:#whitewall">
+        </a-box>
+
+        <a-box
+            position="0 5 -8"       //奥の壁
+            rotation="0 0 0"
+            width="18"
+            height="10"
+            material="src:#whitewall">
+        </a-box>
+
+        <a-box
+            position="0 5 8"        //手前の壁
+            rotation="0 0 0"
+            width="18"
+            height="10"
+            material="src:#whitewall">
+        </a-box>
+    
+        <a-box
+            position="-8 5 0"       //左の壁
+            rotation="0 90 0"
+            width="18"
+            height="10"
+           material="src:#whitewall">
+        </a-box>
+
+        <a-box
+            position="8 5 0"       //右の壁
+            rotation="0 90 0"
+            width="18"
+            height="10"
+            material="src:#whitewall">
+        </a-box>
+    
+       <a-box                      //左ベッド
+            position="-2 1 -2"
+            width="2"
+            depth="3"
+            height="1"
+            material="src:#bedsheets">
+        </a-box>
+       
+
+       <a-box                     //右ベッド
+            position="2 1 -2"
+            width="2"
+            depth="3"
+            height="1"
+            material="src:#bedsheets">
+        </a-box>
+
+        <a-cylinder          //左奥柱
+            position="-8 5 -8"
+            radius="1.5"
+            height="11"
+            material="src:#mainstay">
+        </a-cylinder>
+
+        <a-cylinder          //右奥柱
+            position="8 5 -8"
+            radius="1.5"
+            height="11"
+            material="src:#mainstay">
+        </a-cylinder>
+
+        <a-cylinder          //左手前柱
+            position="-8 5 8"
+            radius="1.5"
+            height="11"
+            material="src:#mainstay">
+        </a-cylinder>
+
+        <a-cylinder          //右奥柱
+            position="8 5 8"
+            radius="1.5"
+            height="11"
+            material="src:#mainstay">
+        </a-cylinder>
+
+    <!-- 時計全体 -->//AIや先生やクラスメイトの手を借りながらどうにか完成したゾーン
+    <a-entity position="-0.75 7 -7.5">
+                 
+        <!-- 文字盤 -->
+        <a-cylinder
+            rotation="90 0 0"
+            radius="1.25"
+            height="0.1">
+        </a-cylinder>
+
+
+        <!-- 時針 -->
+        <a-entity 
+            id="hourHand"
+    
+            animation="property: rotation;
+             from: 0 0 0;
+             to: 0 0 -360;
+             dur: 43200000;
+             loop: true;
+             easing: linear;">
+         <a-cylinder
+                position="0 0.4 0"
+                radius="0.1"
+                height="0.8"
+                color="black">
+         </a-cylinder>
+
+        </a-entity>
+
+        <!-- 分針 -->
+        <a-entity
+            id="minuteHand"
+            animation="property: rotation;
+             from: 0 0 0;
+             to: 0 0 -360;
+             dur: 3600000;
+             loop: true;
+             easing: linear;">
+        <a-cylinder 
+            position="0 0.5 0"
+            radius="0.07"
+            height="1.0"
+            color="black">
+        </a-cylinder>
+
+</a-entity>
+
+
+        <!-- 秒針 -->
+        <a-entity
+            id="secondHand"
+            position="0 0 0.05"
+            animation="property: rotation;
+            from: 0 0 0;
+            to: 0 0 -360 ;
+            dur: 60000;
+            loop: true;
+            easing: linear;">
+
+       <a-cylinder 
+            position="0 0.6 0"
+            radius="0.05"
+            height="1.2"
+            color="black">
+        </a-cylinder>
+    
+        </a-entity>
+
+    </a-entity>//AIや先生やクラスメイトの手を借りながらどうにか完成したゾーン終                     
+
+
+
+        
+        <a-camera position="0 1 5"></a-camera>
     </a-scene>
 </body>
-
 </html>
