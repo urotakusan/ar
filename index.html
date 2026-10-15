@@ -19,6 +19,81 @@
         <a-box position="0 0 1" color="green"></a-box>
 
     </a-marker>
+
+    <a-marker preset="kanji">
+         <a-entity position="0 -2 0" rotation="-90 0 0">
+                 
+        <!-- 文字盤 -->
+        <a-cylinder
+            rotation="90 0 0"
+            radius="1.25"
+            height="0.1">
+        </a-cylinder>
+
+
+        <!-- 時針 -->
+        <a-entity 
+            id="hourHand"
+    
+            animation="property: rotation;
+             from: 0 0 0;
+             to: 0 0 -360;
+             dur: 43200000;
+             loop: true;
+             easing: linear;">
+         <a-cylinder
+                position="0 0.4 0"
+                radius="0.1"
+                height="0.8"
+                color="black">
+         </a-cylinder>
+
+        </a-entity>
+
+        <!-- 分針 -->
+        <a-entity
+            id="minuteHand"
+            animation="property: rotation;
+             from: 0 0 0;
+             to: 0 0 -360;
+             dur: 3600000;
+             loop: true;
+             easing: linear;">
+        <a-cylinder 
+            position="0 0.5 0"
+            radius="0.07"
+            height="1.0"
+            color="black">
+        </a-cylinder>
+
+</a-entity>
+
+
+        <!-- 秒針 -->
+        <a-entity
+            id="secondHand"
+            position="0 0 0.05"
+            animation="property: rotation;
+            from: 0 0 0;
+            to: 0 0 -360 ;
+            dur: 60000;
+            loop: true;
+            easing: linear;">
+
+       <a-cylinder 
+            position="0 0.6 0"
+            radius="0.05"
+            height="1.2"
+            color="black">
+        </a-cylinder>
+    
+        </a-entity>
+
+    </a-entity>                   
+
+
+    
+    </a-marker>
     <a-entity camera></a-entity>
 
 </a-scene>
