@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>回るアナログ時計</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+
+    <!-- 背景 -->
+    <a-sky color="#DDE6ED"></a-sky>
+
+    <!-- 壁 -->
+    <a-plane
+      position="0 2 -4.1"
+      width="10"
+      height="6"
+      color="#C6D3DD">
+    </a-plane>
+
+    <!-- 時計全体 -->
+    <a-entity position="0 2 -4">
+
+      <!-- 時計の枠 -->
+      <a-circle
+        radius="1.08"
+        color="#333333">
+      </a-circle>
+
+      <!-- 文字盤 -->
+      <a-circle
+        position="0 0 0.01"
+        radius="1"
+        color="#FFFFFF">
+      </a-circle>
+
+      <!-- 数字 -->
+      <a-text
+        value="12" position="0 0.8 0.02"
+        align="center" anchor="center"
+        color="#333333" width="3">
+      </a-text>
+
+      <a-text
+        value="3" position="0.83 0 0.02"
+        align="center" anchor="center"
+        color="#333333" width="3">
+      </a-text>
+
+      <a-text
+        value="6" position="0 -0.8 0.02"
+        align="center" anchor="center"
+        color="#333333" width="3">
+      </a-text>
+
+      <a-text
+        value="9" position="-0.83 0 0.02"
+        align="center" anchor="center"
+        color="#333333" width="3">
+      </a-text>
+
+      <!-- 長針の回転軸：10秒で1周 -->
+      <a-entity
+        position="0 0 0.04"
+        animation="
+          property: rotation;
+          from: 0 0 0;
+          to: 0 0 -360;
+          dur: 10000;
+          loop: true;
+          easing: linear">
+
+        <!-- 長さ0.7の半分、0.35だけ上にずらす -->
+        <a-box
+          position="0 0.35 0"
+          width="0.04"
+          height="0.7"
+          depth="0.02"
+          color="#333333">
+        </a-box>
+
+      </a-entity>
+
+      <!-- 短針の回転軸：60秒で1周 -->
+      <a-entity
+        position="0 0 0.07"
+        animation="
+          property: rotation;
+          from: 0 0 0;
+          to: 0 0 -360;
+          dur: 60000;
+          loop: true;
+          easing: linear">
+
+        <!-- 長さ0.5の半分、0.25だけ上にずらす -->
+        <a-box
+          position="0 0.25 0"
+          width="0.07"
+          height="0.5"
+          depth="0.02"
+          color="#333333">
+        </a-box>
+
+      </a-entity>
+
+      <!-- 中心の留め具 -->
+      <a-circle
+        position="0 0 0.1"
+        radius="0.07"
+        color="#E74C3C">
+      </a-circle>
+
+    </a-entity>
+
+    <!-- カメラ -->
+    <a-camera position="0 2 0"></a-camera>
+
+  </a-scene>
+</body>
+</html>
