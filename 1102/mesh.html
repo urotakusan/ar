@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+    <style>
+        html,
+        body{
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <a-scene id="scene" mindar-face embedded>
+        <a-entity 
+            id="face"
+            mindar-face-default-face-occluder
+        >  
+        </a-entity>
+        <a-camera position="0 0 0"></a-camera>
+
+    </a-scene>
+    <script>
+        const scene = document.getElementById("scene");
+        const face = document.getElementById("face");
+
+        scene.addEventListener("arReady", showFaceMesh);
+
+        function showFaceMesh(){
+            const material = face.getObject3D("mesh").material;
+            material.colorWrite = true;
+            material.wireframe = true;
+            material.color.set("lightgreen");
+        }
+    </script>
+</body>
+</html>

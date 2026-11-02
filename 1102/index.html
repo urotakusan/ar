@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+    <style>
+        html,
+        body{
+            width:100%;
+            height:100%;
+        }
+
+        #hud{
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+
+        button{
+            font-size:18px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="hud">
+        <button id="megane1Btn">眼鏡1</button>
+        <button id="megane2Btn">眼鏡2</button>
+    </div>
+    <a-scene id="scene" mindar-face embedded>
+        <a-entity id="face" mindar-face-target="anchorIndex: 168">
+            <a-gltf-model id="accessory">
+            </a-gltf-model>
+        </a-entity>
+        <a-camera position="0 0 0"></a-camera>
+
+    </a-scene>
+
+    <script>
+        const accessory = document.getElementById("accessory");
+        const megane1Btn = document.getElementById("megane1Btn");
+        const megane2Btn = document.getElementById("megane2Btn");
+
+        function toMegane1(){
+            accessory.setAttribute("src", "megane1.glb");
+             accessory.setAttribute("position", "-0.08 0 -0.1");
+            accessory.setAttribute("rotation", "0 -180 0");
+            accessory.setAttribute("scale", "0.7 0.7 0.7");
+        }
+
+        megane1Btn.addEventListener("click", toMegane1);
+
+        function toMegane2(){
+            accessory.setAttribute("src", "megane2.glb");
+            accessory.setAttribute("position", "0 0 -0.1");
+            accessory.setAttribute("rotation", "0 0 0");
+            accessory.setAttribute("scale", "0.55 0.55 0.55");
+
+        }
+        megane2Btn.addEventListener("click" , toMegane2);
+    </script>
+</body>
+</html>
