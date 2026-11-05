@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.5.0/dist/aframe-master.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/projapayuri/aframe-gesture-hands@v0.9.2/aframe-gesture-hands.js"></script>
+</head>
+<body>
+    <a-scene hands>
+        <a-entity hand-anchor="index:8">
+            <a-octahedron
+                color="blue"
+                scale="0.3 0.3 0.3"
+                position="0 0.2 0"
+            ></a-octahedron>
+        </a-entity>
+
+         <a-entity hand-anchor="index:12">
+            <a-octahedron
+                color="green"
+                scale="0.3 0.3 0.3"
+                position="0 0.2 0"
+            ></a-octahedron>
+        </a-entity>
+
+         <a-entity hand-anchor="index:16">
+            <a-octahedron
+                color="red"
+                scale="0.3 0.3 0.3"
+                position="0 0.2 0"
+            ></a-octahedron>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
